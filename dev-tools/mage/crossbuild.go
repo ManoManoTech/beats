@@ -172,6 +172,33 @@ func CrossBuild(options ...CrossBuildOption) error {
 
 	// Each build runs in parallel.
 	Parallel(deps...)
+
+	// It needs to run after all the builds, as it needs the darwin binaries.
+	if err := assembleDarwinUniversal(params); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// assembleDarwinUniversal checks if darwin/amd64 and darwin/arm64 were build,
+// if so, it generates a darwin/universal binary that is the merge fo them two.
+func assembleDarwinUniversal(params crossBuildParams) error {
+	if IsDarwinUniversal() {
+		builder := GolangCrossBuilder{
+			// the docker image for darwin/arm64 is the one capable of merging the binaries.
+			Platform:      "darwin/arm64",
+			Target:        "assembleDarwinUniversal",
+			InDir:         params.InDir,
+			ImageSelector: params.ImageSelector}
+		if err := builder.Build(); err != nil {
+			return errors.Wrapf(err,
+				"failed merging darwin/amd64 and darwin/arm64 into darwin/universal target=%v for platform=%v",
+				builder.Target,
+				builder.Platform)
+		}
+	}
+
 	return nil
 }
 
@@ -197,8 +224,13 @@ func crossBuildImage(platform string) (string, error) {
 	tagSuffix := "main"
 
 	switch {
-	case strings.HasPrefix(platform, "darwin"):
-		tagSuffix = "darwin"
+	case platform == "darwin/amd64":
+		tagSuffix = "darwin-debian10"
+	case platform == "darwin/arm64":
+		tagSuffix = "darwin-arm64-debian10"
+	case platform == "darwin/universal":
+		tagSuffix = "darwin-arm64-debian10"
+	case platform == "linux/arm64":
 	case strings.HasPrefix(platform, "linux/arm"):
 		tagSuffix = "arm"
 		if runtime.GOARCH == "arm64" {
@@ -216,6 +248,7 @@ func crossBuildImage(platform string) (string, error) {
 		tagSuffix = "main-debian7"
 	}
 
+	fmt.Printf("pl: %s, tag: %s\n", platform, tagSuffix)
 	goVersion, err := GoVersion()
 	if err != nil {
 		return "", err
