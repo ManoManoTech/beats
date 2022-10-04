@@ -66,7 +66,7 @@ update: mage
 
 .PHONY: crosscompile
 crosscompile: mage
-	mage crossBuild
+	mage -v crossBuild
 
 .PHONY: docs
 docs:

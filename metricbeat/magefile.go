@@ -26,32 +26,30 @@ import (
 	"os"
 	"strconv"
 	"time"
+	// register kubernetes runner
+	// mage:import
+	// mage:import
+	// mage:import
+	// mage:import
+	// mage:import
+	// mage:import
+	// mage:import
+	// mage:import
+	// mage:import
 
 	"github.com/magefile/mage/mg"
 
 	devtools "github.com/elastic/beats/v7/dev-tools/mage"
-	metricbeat "github.com/elastic/beats/v7/metricbeat/scripts/mage"
-
-	// register kubernetes runner
 	_ "github.com/elastic/beats/v7/dev-tools/mage/kubernetes"
-
-	// mage:import
 	"github.com/elastic/beats/v7/dev-tools/mage/target/build"
-	// mage:import
 	"github.com/elastic/beats/v7/dev-tools/mage/target/common"
-	// mage:import
-	_ "github.com/elastic/beats/v7/dev-tools/mage/target/dashboards"
-	// mage:import
-	_ "github.com/elastic/beats/v7/dev-tools/mage/target/docs"
-	// mage:import
-	_ "github.com/elastic/beats/v7/dev-tools/mage/target/pkg"
-	// mage:import
-	"github.com/elastic/beats/v7/dev-tools/mage/target/test"
-	// mage:import
-	"github.com/elastic/beats/v7/dev-tools/mage/target/unittest"
-	// mage:import
 	_ "github.com/elastic/beats/v7/dev-tools/mage/target/compose"
-	// mage:import
+	_ "github.com/elastic/beats/v7/dev-tools/mage/target/dashboards"
+	_ "github.com/elastic/beats/v7/dev-tools/mage/target/docs"
+	_ "github.com/elastic/beats/v7/dev-tools/mage/target/pkg"
+	"github.com/elastic/beats/v7/dev-tools/mage/target/test"
+	"github.com/elastic/beats/v7/dev-tools/mage/target/unittest"
+	metricbeat "github.com/elastic/beats/v7/metricbeat/scripts/mage"
 	_ "github.com/elastic/beats/v7/metricbeat/scripts/mage/target/metricset"
 )
 
@@ -138,6 +136,13 @@ func MockedTests(ctx context.Context) error {
 	params.Packages = nil
 
 	return devtools.GoTest(ctx, params)
+}
+
+// AssembleDarwinUniversal merges the darwin/amd64 and darwin/arm64 into a single
+// universal binary using `lipo`. It assumes the darwin/amd64 and darwin/arm64
+// were built and only performs the merge.
+func AssembleDarwinUniversal() error {
+	return build.AssembleDarwinUniversal()
 }
 
 // Fields generates a fields.yml and fields.go for each module.
