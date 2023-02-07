@@ -4,10 +4,10 @@ go 1.15
 
 require (
 	4d63.com/tz v1.1.1-0.20191124060701-6d37baae851b
-	cloud.google.com/go v0.51.0
-	cloud.google.com/go/bigquery v1.0.1
-	cloud.google.com/go/pubsub v1.0.1
-	cloud.google.com/go/storage v1.0.0
+	cloud.google.com/go v0.54.0
+	cloud.google.com/go/bigquery v1.4.0
+	cloud.google.com/go/pubsub v1.2.0
+	cloud.google.com/go/storage v1.6.0
 	code.cloudfoundry.org/go-diodes v0.0.0-20190809170250-f77fb823c7ee // indirect
 	code.cloudfoundry.org/go-loggregator v7.4.0+incompatible
 	code.cloudfoundry.org/rfc5424 v0.0.0-20180905210152-236a6d29298a // indirect
@@ -15,10 +15,10 @@ require (
 	github.com/Azure/azure-sdk-for-go v37.1.0+incompatible
 	github.com/Azure/azure-storage-blob-go v0.8.0
 	github.com/Azure/go-ansiterm v0.0.0-20170929234023-d6e3b3328b78 // indirect
-	github.com/Azure/go-autorest/autorest v0.9.6
-	github.com/Azure/go-autorest/autorest/adal v0.8.2
+	github.com/Azure/go-autorest/autorest v0.11.1
+	github.com/Azure/go-autorest/autorest/adal v0.9.5
 	github.com/Azure/go-autorest/autorest/azure/auth v0.4.2
-	github.com/Azure/go-autorest/autorest/date v0.2.0
+	github.com/Azure/go-autorest/autorest/date v0.3.0
 	github.com/Microsoft/go-winio v0.4.15-0.20190919025122-fc70bd9a86b5
 	github.com/Shopify/sarama v0.0.0-00010101000000-000000000000
 	github.com/StackExchange/wmi v0.0.0-20170221213301-9f32b5905fd6
@@ -46,7 +46,6 @@ require (
 	github.com/denisenkom/go-mssqldb v0.0.0-20200206145737-bbfc9a55622e
 	github.com/devigned/tab v0.1.2-0.20190607222403-0c15cf42f9a2 // indirect
 	github.com/dgraph-io/badger/v2 v2.2007.3-0.20201012072640-f5a7e0a1c83b
-	github.com/dgrijalva/jwt-go v3.2.1-0.20190620180102-5e25c22bd5d6+incompatible // indirect
 	github.com/digitalocean/go-libvirt v0.0.0-20180301200012-6075ea3c39a1
 	github.com/dlclark/regexp2 v1.1.7-0.20171009020623-7632a260cbaf // indirect
 	github.com/docker/docker v1.4.2-0.20170802015333-8af4db6f002a
@@ -87,13 +86,13 @@ require (
 	github.com/gofrs/flock v0.7.2-0.20190320160742-5135e617513b
 	github.com/gofrs/uuid v3.3.0+incompatible
 	github.com/gogo/protobuf v1.3.1
-	github.com/golang/protobuf v1.4.2
+	github.com/golang/protobuf v1.4.3
 	github.com/golang/snappy v0.0.1
 	github.com/gomodule/redigo v1.8.3
 	github.com/google/flatbuffers v1.7.2-0.20170925184458-7a6b2bf521e9
 	github.com/google/go-cmp v0.5.2
 	github.com/google/gopacket v1.1.18-0.20191009163724-0ad7f2610e34
-	github.com/google/uuid v1.1.2-0.20190416172445-c2e93f3ae59f
+	github.com/google/uuid v1.1.2
 	github.com/gorhill/cronexpr v0.0.0-20180427100037-88b0669f7d75
 	github.com/gorilla/mux v1.7.2 // indirect
 	github.com/grpc-ecosystem/grpc-gateway v1.13.0 // indirect
@@ -145,7 +144,6 @@ require (
 	github.com/shopspring/decimal v1.2.0
 	github.com/spf13/cobra v0.0.5
 	github.com/spf13/pflag v1.0.5
-	github.com/stretchr/objx v0.2.0 // indirect
 	github.com/stretchr/testify v1.7.0
 	github.com/tsg/go-daemon v0.0.0-20200207173439-e704b93fd89b
 	github.com/tsg/gopacket v0.0.0-20200626092518-2ab8e397a786
@@ -163,19 +161,19 @@ require (
 	go.uber.org/atomic v1.5.0
 	go.uber.org/multierr v1.3.0
 	go.uber.org/zap v1.14.0
-	golang.org/x/crypto v0.0.0-20200820211705-5c72a883971a
-	golang.org/x/lint v0.0.0-20200130185559-910be7a94367
-	golang.org/x/net v0.0.0-20200904194848-62affa334b73
+	golang.org/x/crypto v0.0.0-20201002170205-7f63de1d35b0
+	golang.org/x/lint v0.0.0-20200302205851-738671d3881b
+	golang.org/x/net v0.0.0-20201110031124-69a78807bb2b
 	golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
 	golang.org/x/sync v0.0.0-20200317015054-43a5402ce75a
-	golang.org/x/sys v0.0.0-20201009025420-dfb3f7c4e634
-	golang.org/x/text v0.3.3
-	golang.org/x/time v0.0.0-20191024005414-555d28b269f0
+	golang.org/x/sys v0.0.0-20201112073958-5cba982894dd
+	golang.org/x/text v0.3.4
+	golang.org/x/time v0.0.0-20200630173020-3af7569d3a1e
 	golang.org/x/tools v0.0.0-20200904185747-39188db58858
-	google.golang.org/api v0.15.0
+	google.golang.org/api v0.20.0
 	google.golang.org/genproto v0.0.0-20200526211855-cb27e3aa2013
 	google.golang.org/grpc v1.29.1
-	google.golang.org/protobuf v1.24.0
+	google.golang.org/protobuf v1.25.0
 	gopkg.in/inf.v0 v0.9.1
 	gopkg.in/jcmturner/gokrb5.v7 v7.5.0
 	gopkg.in/mgo.v2 v2.0.0-20160818020120-3f83fa500528
@@ -183,9 +181,9 @@ require (
 	gotest.tools v2.2.0+incompatible
 	gotest.tools/gotestsum v0.6.0
 	howett.net/plist v0.0.0-20181124034731-591f970eefbb
-	k8s.io/api v0.19.4
-	k8s.io/apimachinery v0.19.4
-	k8s.io/client-go v0.19.4
+	k8s.io/api v0.20.0
+	k8s.io/apimachinery v0.20.0
+	k8s.io/client-go v0.20.0
 )
 
 replace (
